@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>d or e calc</title>
+</head>
+<body>
+    <h1>D or E calculator</h1>
+    <form action="calc.html" method="post">
+        modulus: 
+        <input type="text" name="mod" id="mod"> <br> <br>
+        d or e:
+        <input type="text" name="d" id="d"> <br> <br>
+        <input type="submit" value="Submit">
+    </form>
+    <br>
+    <span></span>
+</body>
+<script>
+    const form = document.querySelector("form");
+    const h = document.querySelector("span")
+    form.addEventListener("submit", function (event) {
+	event.preventDefault();
+
+	let mod = parseInt(form.elements["mod"].value);
+	let d = parseInt(form.elements["d"].value);
+    var text = "";
+    for (let index = 1; index < 100; index++) {
+        let val = (mod*index+1)/d;
+        text = text + "At index-"+index+"::"+val +"<br> "
+        if (Number.isInteger(val)) {
+            break;
+        }
+    }
+    h.innerHTML = text
+
+});
+</script>
+</html>
